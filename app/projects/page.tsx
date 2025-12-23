@@ -4,14 +4,14 @@ import { motion } from "motion/react";
 import { Container } from "@/src/components/Container";
 import { SubHeading } from "@/src/components/Subheading";
 import { Heading } from "@/src/components/Heading";
-import { Scales } from "@/src/components/Scales";
+
 import { projects } from "@/src/constants/constants";
 
 export default function Projects() {
   return (
     <div id="/projects" className="flex items-start justify-start">
       <Container className="min-h-screen pt-24 pb-12">
-        <Scales />
+    
         <Heading>Projects</Heading>
         <SubHeading>
           Here are some of my projects that I have worked on.

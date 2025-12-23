@@ -39,7 +39,11 @@ export default async function Blogs({ params }: { params: { slug: string } }) {
 
   return (
     <div className="flex min-h-screen flex-col items-start justify-start">
-      <article className="prose prose-md prose-headings:text-2xl  md:prose:lg max-w-none px-4 ">{content}</article>
+      <div className="md:mx-8">
+        <article className="prose prose-sm  prose-h1:text-xl md:prose-h1:text-3xl dark:prose-invert max-w-none px-4 text-neutral-500">
+          {content}
+        </article>
+      </div>
     </div>
   );
 }

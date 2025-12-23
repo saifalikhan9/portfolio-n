@@ -8,7 +8,7 @@ import {
   AnimatePresence,
   useScroll,
 } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CloseIcon } from "../icons/icons";
 import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
 import { cn } from "@/src/lib/utils";
@@ -16,11 +16,14 @@ import { useTheme } from "next-themes";
 
 export const Navbar = () => {
   const { theme, setTheme } = useTheme();
-
+  const [mounted, setMounted] = useState(false);
   const [hovered, setHovered] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { scrollY } = useScroll();
+  useEffect(() => {
+    setMounted(true);
+  });
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 20) {
       setScrolled(true);
@@ -40,19 +43,19 @@ export const Navbar = () => {
         animate={{
           boxShadow: scrolled ? "var(--shadow-custom)" : "",
           backdropFilter: scrolled ? "blur(10px)" : "",
-          width: scrolled ? (innerWidth >= 1024 ? "45%" : "70%") : "100%",
+          width: scrolled ? (innerWidth >= 1024 ? "50%" : "82%") : "100%",
           transition: { duration: 0.5, ease: "easeInOut" },
           y: scrolled ? 10 : 0,
         }}
         className={cn(
-          "fixed inset-x-0 top-3 z-40 mx-auto w-full max-w-xs rounded-3xl md:max-w-3xl md:p-1",
+          "fixed inset-x-0 top-3 z-40 mx-auto w-full  max-w-[23rem] rounded-3xl md:max-w-206 md:p-1",
           "dark: text-secondary",
         )}
       >
         <div className="relative flex w-full items-center justify-between pr-2">
           <Link href="/">
             <Image
-              className="size-10 rounded-full object-cover p-1 transition-all duration-180 ease-in-out hover:scale-110 md:p-0"
+              className="size-13 rounded-full object-cover p-1 transition-all duration-180 ease-in-out hover:scale-110 md:size-10 md:p-0"
               width={100}
               height={100}
               src="https://github.com/saifalikhan9/Portfolio/blob/main/public/images/dp.jpg?raw=true"
@@ -67,7 +70,7 @@ export const Navbar = () => {
               >
                 {NavItems.map((item, index) => (
                   <Link
-                    className="relative px-2 py-1 text-sm"
+                    className="group relative px-2 py-1 text-sm"
                     key={index}
                     href={item.href}
                     onMouseEnter={() => setHovered(index)}
@@ -76,15 +79,18 @@ export const Navbar = () => {
                     {hovered === index && (
                       <motion.span
                         style={{
-                          backgroundColor: scrolled
-                            ? "var(--color-neutral-100)"
-                            : "var(--color-neutral-200)",
+                          backgroundColor:
+                            theme === "dark"
+                              ? "var(--color-neutral-100)"
+                              : "var(--color-neutral-800)",
                         }}
                         layoutId="hovered"
                         className="absolute inset-0 h-full w-full rounded-xl dark:bg-neutral-800"
                       />
                     )}
-                    <span className="relative z-10">{item.title}</span>
+                    <span className="relative z-10 group-hover:text-neutral-200 dark:group-hover:text-neutral-800">
+                      {item.title}
+                    </span>
                   </Link>
                 ))}
               </div>
@@ -98,53 +104,55 @@ export const Navbar = () => {
                 <CloseIcon isOpen={isMenuOpen} />
               </button>
             </div>
-            <div className="hidden lg:block">
-              {theme === "dark" ? (
-                <button
-                  onClick={() => {
-                    setTheme("light");
-                  }}
-                  className={cn(
-                    "dark cursor-pointer rounded-lg p-[0.4rem]",
+            {mounted && (
+              <div className="hidden lg:block">
+                {theme === "dark" ? (
+                  <button
+                    onClick={() => {
+                      setTheme("light");
+                    }}
+                    className={cn(
+                      "dark cursor-pointer rounded-lg p-[0.4rem]",
 
-                    "text-neutral-600 dark:text-white",
+                      "text-neutral-600 dark:text-white",
 
-                    "hover:bg-neutral-300 dark:bg-black dark:hover:bg-neutral-900",
+                      "hover:bg-neutral-300 dark:bg-black dark:hover:bg-neutral-900",
 
-                    "inset-shadow-[1px_1px_4px_2.3px_rgba(0,0,0,0.1)] dark:ring dark:inset-shadow-[0_1px_2px_var(--color-neutral-500),0_-2px_4px_var(--color-neutral-500)] dark:ring-neutral-500",
+                      "inset-shadow-[1px_1px_4px_2.3px_rgba(0,0,0,0.1)] dark:ring dark:inset-shadow-[0_1px_2px_var(--color-neutral-500),0_-2px_4px_var(--color-neutral-500)] dark:ring-neutral-500",
 
-                    "transition-all duration-200 active:scale-90",
-                  )}
-                >
-                  <IconSunFilled
-                    size={18}
-                    className="transition-all duration-200"
-                  />
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setTheme("dark");
-                  }}
-                  className={cn(
-                    "cursor-pointer rounded-lg p-[0.4rem]",
+                      "transition-all duration-200 active:scale-90",
+                    )}
+                  >
+                    <IconSunFilled
+                      size={18}
+                      className="transition-all duration-200"
+                    />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setTheme("dark");
+                    }}
+                    className={cn(
+                      "cursor-pointer rounded-lg p-[0.4rem]",
 
-                    "text-neutral-600 dark:text-white",
+                      "text-neutral-600 dark:text-white",
 
-                    "hover:bg-neutral-300 dark:bg-black dark:hover:bg-neutral-900",
+                      "hover:bg-neutral-300 dark:bg-black dark:hover:bg-neutral-900",
 
-                    "inset-shadow-[1px_1px_4px_2.3px_rgba(0,0,0,0.1)] dark:ring dark:inset-shadow-[0_1px_2px_var(--color-neutral-500),0_-2px_4px_var(--color-neutral-500)] dark:ring-neutral-500",
+                      "inset-shadow-[1px_1px_4px_2.3px_rgba(0,0,0,0.1)] dark:ring dark:inset-shadow-[0_1px_2px_var(--color-neutral-500),0_-2px_4px_var(--color-neutral-500)] dark:ring-neutral-500",
 
-                    "transition-all duration-200 active:scale-90",
-                  )}
-                >
-                  <IconMoonFilled
-                    size={18}
-                    className="transition-all duration-200"
-                  />
-                </button>
-              )}
-            </div>
+                      "transition-all duration-200 active:scale-90",
+                    )}
+                  >
+                    <IconMoonFilled
+                      size={18}
+                      className="transition-all duration-200"
+                    />
+                  </button>
+                )}
+              </div>
+            )}
             <AnimatePresence>
               {isMenuOpen && (
                 <motion.div
@@ -152,7 +160,7 @@ export const Navbar = () => {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute top-10 right-0 mt-3 flex w-full flex-col gap-1 rounded-3xl border border-neutral-200/60 bg-white/80 p-2 text-sm shadow-2xl backdrop-blur md:hidden dark:border-neutral-800/60 dark:bg-neutral-900/80"
+                  className="absolute top-12 right-0 mt-3 flex w-full flex-col gap-1 rounded-3xl border border-neutral-200/60 bg-white/80 p-2 text-sm shadow-2xl backdrop-blur md:hidden dark:border-neutral-800/60 dark:bg-neutral-900/80"
                 >
                   {NavItems.map((item, index) => (
                     <Link

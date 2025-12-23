@@ -5,6 +5,7 @@ import { SubHeading } from "../Subheading";
 
 export default async function BlogsLanding() {
   const blogs = await getAllBlogs();
+  
 
   return (
     <section className="">

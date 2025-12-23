@@ -11,8 +11,8 @@ export const Container = ({
   return (
     <div
       className={cn(
-        className,
-        "relative mx-auto w-full md:max-w-4xl bg-primary dark:bg-primary px-8", 
+        "bg-primary dark:bg-primary  relative mx-auto w-full md:max-w-4xl",
+        className
       )}
     >
       {children}

@@ -22,10 +22,11 @@ type BlogMetadata = {
 export const getSingleBlog = async (
   fileName: string,
 ): Promise<BlogData | null> => {
-  const filePath = path.join(process.cwd(), "src/data", `${fileName}.mdx`);
+  const filePath = path.join(process.cwd(), "src/data/blogs", `${fileName}.mdx`);
   if (!fs.existsSync(filePath)) {
     return null;
   }
+
   const singleBlog = fs.readFileSync(filePath, "utf-8");
   if (singleBlog) {
     const { content, frontmatter } = await compileMDX<BlogFrontmatter>({
@@ -42,10 +43,10 @@ export const getSingleBlog = async (
 };
 
 export const getAllBlogs = async (): Promise<Array<BlogMetadata>> => {
-  const files = fs.readdirSync(path.join(process.cwd(), "src/data"));
+  const files = fs.readdirSync(path.join(process.cwd(), "src/data/blogs"));
   const blogs = await Promise.all(
     files.map(async (file) => {
-      const filePath = path.join(process.cwd(), "src/data", file);
+      const filePath = path.join(process.cwd(), "src/data/blogs", file);
       const fileContent = fs.readFileSync(filePath, "utf-8");
       const { frontmatter } = await compileMDX<BlogFrontmatter>({
         source: fileContent,

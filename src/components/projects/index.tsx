@@ -14,7 +14,7 @@ export default function Projects() {
       <p className="text-muted-forground py-2 text-sm">
         Here are some of my projects that I have worked on.
       </p>
-      <div className="group my-2 grid grid-cols-1 gap-3 md:grid-cols-2">
+      <div className="group my-2 grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((el, indx) => (
           <Link
             href={`/projects/${el.slug}`}
@@ -34,8 +34,8 @@ export default function Projects() {
                 alt={el.title}
                 
               />
-              <h2 className="text-forground mt-2  tracking-tight textlg font-semibold md:text-xl">{el.title}</h2>
-              <p className="text-muted-forground my-1 pl-1 text-sm">
+              <h2 className="text-forground mt-2  tracking-tight text-lg font-semibold md:text-xl">{el.title}</h2>
+              <p className="text-muted-forground my-1  text-sm">
                 {truncate(el.description, 250)}
               </p>
             </motion.div>

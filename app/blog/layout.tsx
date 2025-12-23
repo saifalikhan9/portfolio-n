@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { Container } from "@/src/components/Container";
-import { Scales } from "@/src/components/Scales";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <Container className="min-h-screen  pt-24 pb-12 ">
-      <Scales />
+  
       {children}
     </Container>
   );
