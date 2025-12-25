@@ -91,7 +91,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
           </div>
           <div className="mx-4 flex gap-3 text-base">
-            <button className="bg-forground text-primary cursor-pointer hover:bg-forground/90 rounded px-4 py-1 font-medium">
+            <button className="bg-forground text-primary hover:bg-forground/90 cursor-pointer rounded px-4 py-1 font-medium">
               Github link
             </button>
             <button
