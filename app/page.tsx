@@ -1,6 +1,7 @@
 import BlogsLanding from "@/src/components/Blogs";
 import { Container } from "@/src/components/Container";
 import { Heading } from "@/src/components/Heading";
+import { GithubLanding } from "@/src/components/Landings/GithubLanding";
 import Projects from "@/src/components/projects";
 
 import { SubHeading } from "@/src/components/Subheading";
@@ -21,6 +22,7 @@ export default function Home() {
         </SubHeading>
         <Projects />
         <BlogsLanding />
+        <GithubLanding/>
       </Container>
     </div>
   );
