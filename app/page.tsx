@@ -1,10 +1,11 @@
-import BlogsLanding from "@/src/components/Blogs";
-import { Container } from "@/src/components/Container";
-import { Heading } from "@/src/components/Heading";
-import { GithubLanding } from "@/src/components/Landings/GithubLanding";
-import Projects from "@/src/components/projects";
+import BlogsLanding from "@/src/components/Landings/Blogs";
+import { Container } from "@/src/components/ui/Container";
 
-import { SubHeading } from "@/src/components/Subheading";
+import { GithubLanding } from "@/src/components/Landings/GithubLanding";
+import Projects from "@/src/components/Landings/Projects";
+import { Heading } from "@/src/components/ui/Heading";
+import { SubHeading } from "@/src/components/ui/Subheading";
+
 
 export default function Home() {
   

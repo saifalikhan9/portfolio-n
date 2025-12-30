@@ -1,30 +1,30 @@
 "use client";
 import React from "react";
-import { cn } from "../lib/utils";
+import { cn } from "@/src/lib/utils";
 import { motion } from "motion/react";
 
-export const Heading = ({
+export const SubHeading = ({
   children,
   className,
-  as = "h1",
+  as = "h2",
 }: {
   children: React.ReactNode;
   className?: string;
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  as?: "h2" | "h3" | "h4" | "h5" | "h6";
 }) => {
   const Tag = as;
   return (
     <motion.div
       initial={{ opacity: 0, filter: "blur(10px)", y: -40 }}
       whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-      transition={{ duration: 0.2, ease: "easeInOut" }}
+      transition={{ duration: 0.2, delay: 0.1, ease: "easeInOut" }}
       viewport={{ once: true }}
     >
       <Tag
         className={cn(
-         
-          "text-forground dark:text-forground px-4 md:px-10 text-3xl font-bold tracking-tighter drop-shadow-lg md:text-4xl",
-         className)}
+          "text-muted-forground dark:text-muted-forground my-2 max-w-xs px-4 text-sm md:max-w-lg md:px-10",
+          className,
+        )}
       >
         {children}
       </Tag>

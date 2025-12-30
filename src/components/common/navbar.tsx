@@ -1,5 +1,5 @@
 "use client";
-import { Container } from "../Container";
+import { Container } from "../ui/Container";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,7 +9,7 @@ import {
   useScroll,
 } from "motion/react";
 import { useEffect, useState } from "react";
-import { CloseIcon } from "../icons/icons";
+import { CloseIcon } from "../ui/icons/CloseIcon";
 import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
 import { cn } from "@/src/lib/utils";
 import { useTheme } from "next-themes";

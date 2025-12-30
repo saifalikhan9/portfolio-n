@@ -1,4 +1,4 @@
-import { Container } from "@/src/components/Container";
+import { Container } from "@/src/components/ui/Container";
 import { Heading } from "@/src/components/Heading";
 import { getAllBlogs } from "@/src/utils/getSingleBlog";
 import { truncate } from "@/src/utils/utils";

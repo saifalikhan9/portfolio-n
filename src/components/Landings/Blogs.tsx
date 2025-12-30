@@ -1,7 +1,8 @@
 import { getAllBlogs } from "@/src/utils/getSingleBlog";
 import { truncate } from "@/src/utils/utils";
 import Link from "next/link";
-import { SubHeading } from "../Subheading";
+import { SubHeading } from "../ui/Subheading";
+
 
 export default async function BlogsLanding() {
   const blogs = await getAllBlogs();

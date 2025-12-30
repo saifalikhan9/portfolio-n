@@ -4,13 +4,13 @@ import { cn } from "@/src/lib/utils";
 import { useState } from "react";
 
 const badgeVariants = cva(
-  " flex items-center rounded-lg p-1 md:py-1 md:px-2 text-xs transition-all ease-in-out duration-300 ",
+  " flex items-center  rounded-lg p-1 md:py-1 md:px-2 text-xs transition-all ease-in-out duration-300 ",
   {
     variants: {
       variant: {
         primary: "bg-primary shadow-custom dark:shadow-custom-dark",
         secondary: " bg-secondary shadow-custom dark:shadow-custom-dark",
-        transparent: " p-0 md:p-0 text-2xl hover:scale-120 ",
+        transparent: " p-0 md:px-0 mx-1 text-2xl hover:scale-120  ",
       },
     },
     defaultVariants: {

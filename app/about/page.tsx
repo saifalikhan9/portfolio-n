@@ -1,5 +1,5 @@
 "use client";
-import { Container } from "@/src/components/Container";
+import { Container } from "@/src/components/ui/Container";
 import { Heading } from "@/src/components/Heading";
 import { motion } from "motion/react";
 import { SubHeading } from "@/src/components/Subheading";

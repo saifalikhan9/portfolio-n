@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ActivityCalendar from "react-activity-calendar";
-import { Container } from "../Container";
+import { Container } from "../ui/Container";
 import { githubConfig } from "@/src/config/GithubConfig";
 import Link from "next/link";
 import { IconBrandGithub } from "@tabler/icons-react";

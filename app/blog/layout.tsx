@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { Container } from "@/src/components/Container";
+import { Container } from "@/src/components/ui/Container";
 
 
 export const metadata: Metadata = {

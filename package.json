@@ -25,7 +25,8 @@
     "react": "19.2.0",
     "react-activity-calendar": "2.3.0",
     "react-dom": "19.2.0",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.0",
+    "tech-stack-icons": "^3.3.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

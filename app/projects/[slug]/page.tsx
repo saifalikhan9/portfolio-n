@@ -1,8 +1,8 @@
-import { Badge } from "@/src/components/bages";
-import { Container } from "@/src/components/Container";
+import { Badge } from "@/src/components/ui/bages";
+import { Container } from "@/src/components/ui/Container";
 import { Heading } from "@/src/components/Heading";
 import { SubHeading } from "@/src/components/Subheading";
-import { Quote } from "@/src/components/Quote";
+import { Quote } from "@/src/components/ui/Quote";
 import { cn } from "@/src/lib/utils";
 import { getSingleProject } from "@/src/utils/getprojects";
 import type { Metadata } from "next";
