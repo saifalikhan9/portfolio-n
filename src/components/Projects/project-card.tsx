@@ -46,7 +46,7 @@ export const ProjectCard = ({
 
       {hovered === index &&  <motion.div
         layoutId="hovered"
-        className="shadow-custom-inset-shadow dark:shadow-custom-inset-shadow-dark bg-secondary/20 absolute inset-0 -top-2 -left-2 h-[28rem] w-[26rem] rounded-xl"
+        className="shadow-custom-inset-shadow dark:shadow-custom-inset-shadow-dark bg-secondary/20 absolute inset-0 -top-2 -left-2 h-[28rem] w-full md:w-[26rem] rounded-xl"
       />   }
      
       <ProjectImage image={projects.image} imageDes={projects.description} />

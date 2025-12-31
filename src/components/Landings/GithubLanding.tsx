@@ -112,8 +112,9 @@ export const GithubLanding = () => {
   }, []);
   return (
     <>
-      <Container className="">
-        <div className="bg-secondary/10 mx-auto  w-fit rounded-xl p-4 inset-shadow-[1px_1px_4px_2.3px_rgba(0,0,0,0.1)] dark:inset-shadow-[0_1px_2px_var(--color-neutral-500),0_-2px_4px_var(--color-neutral-500)] dark:ring-neutral-500">
+      <Container className="p-3 lg:px-8">
+        <h2 className="text-sm text-muted-forground mb-4 mx-2">Github Contributions</h2>
+        <div className="bg-secondary/10 mx-auto lg:max-w-full rounded-xl p-4 inset-shadow-[1px_1px_4px_2.3px_rgba(0,0,0,0.1)] md:max-w-[44rem] dark:inset-shadow-[0_1px_2px_var(--color-neutral-500),0_-2px_4px_var(--color-neutral-500)] dark:ring-neutral-500">
           <ActivityCalendar
             data={contributions}
             blockSize={11}

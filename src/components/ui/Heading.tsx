@@ -23,7 +23,7 @@ export const Heading = ({
       <Tag
         className={cn(
          
-          "text-forground dark:text-forground px-4 md:px-10 text-3xl font-bold tracking-tighter drop-shadow-lg md:text-4xl",
+          "text-forground text-shadow-2xs text-shadow-secondary/70 dark:text-forground px-4 md:px-10 text-3xl font-bold tracking-tighter drop-shadow-lg md:text-4xl",
          className)}
       >
         {children}
