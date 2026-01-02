@@ -17,15 +17,17 @@ export const ProjectContents = ({
 }) => {
   return (
     <Container className="pt-30 md:px-12">
-      <div className="mx-auto overflow-hidden rounded-2xl shadow-[0px_2px_5px_2px_var(--color-neutral-600)] dark:shadow-none">
-        <Image
-          className="w-full rounded-2xl"
-          width={600}
-          height={600}
-          src={frontmatter.url}
-          alt={frontmatter.title}
-        />
-      </div>
+      {frontmatter.url && (
+        <div className="mx-auto overflow-hidden rounded-2xl shadow-[0px_2px_5px_2px_var(--color-neutral-600)] dark:shadow-none">
+          <Image
+            className="w-full rounded-2xl"
+            width={600}
+            height={600}
+            src={frontmatter.url}
+            alt={frontmatter.title}
+          />
+        </div>
+      )}
 
       <div className="flex gap-2 py-4">
         <Badge className="bg-forground text-primary">

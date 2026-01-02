@@ -38,22 +38,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
   if (!project) return null;
 
   const { content, frontmatter } = project;
-
-  let quoteData: QuoteData = { quote: "", reference: "" };
-
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/getQuote`,
-      { cache: "no-store" }, // IMPORTANT for AI
-    );
-
-    if (res.ok) {
-      const json = await res.json();
-      quoteData = json?.data ?? quoteData;
-    }
-  } catch (error) {
-    console.error("Failed to fetch quote:", error);
-  }
+  console.log(frontmatter);
+  
 
   return (
     <div className="flex min-h-screen justify-start">
@@ -62,4 +48,3 @@ export default async function Page({ params }: { params: { slug: string } }) {
   );
 }
 
-/* ---------- Small Helper Components ---------- */

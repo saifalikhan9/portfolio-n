@@ -49,4 +49,23 @@ export const projects: Project[] = [
     projectDetailsPageSlug: "neon-loop",
     isWorking: true,
   },
+  {
+    title: "LeetCode Whisper / Chrome Extension",
+    description:
+      "Built a Chrome extension that provides AI-powered hints for LeetCode problems without revealing full solutions. The extension extracts problem context directly from the DOM, refines and structures the data, and feeds it to an LLM with strict prompt constraints to generate conceptual guidance, edge-case reminders, and approach-level hints. Designed with responsible AI usage in mind, requiring users to supply their own API key while ensuring no credentials or problem data are stored.",
+    image: "/leetcode-whisper.png",
+  
+    link: "", // optional: Chrome Web Store or demo link if available
+    technologies: [
+      { name: "TypeScript", icon: <TypeScript /> },
+      { name: "React", icon: <ReactIcon key="react" /> },
+      // { name: "Vite", icon: <ViteIcon key="vite" /> },
+      // { name: "Chrome Extensions API", icon: <ChromeIcon key="chrome" /> },
+    ],
+    github: "https://github.com/saifalikhan9/Extention",
+    details: true,
+    projectDetailsPageSlug: "leetcode-whisper",
+    isWorking: true,
+  }
+  
 ];
