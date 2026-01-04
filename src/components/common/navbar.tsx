@@ -41,14 +41,14 @@ export const Navbar = () => {
     <Container className="">
       <motion.nav
         animate={{
-          boxShadow: scrolled ? "var(--shadow-custom)" : "",
-          backdropFilter: scrolled ? "blur(10px)" : "",
+          boxShadow: scrolled ? "var(--shadow-custom)" : "none",
+          backdropFilter: scrolled ? "blur(10px)" : "none",
           width: scrolled ? (innerWidth >= 1024 ? "50%" : "82%") : "100%",
           transition: { duration: 0.5, ease: "easeInOut" },
           y: scrolled ? 10 : 0,
         }}
         className={cn(
-          "fixed inset-x-0 top-3 z-40 mx-auto w-full  max-w-[23rem] rounded-3xl md:max-w-206 md:p-1",
+          "fixed inset-x-0 top-3 z-40 mx-auto w-full  max-w-92 rounded-3xl md:max-w-206 md:p-1",
           "dark: text-secondary",
         )}
       >

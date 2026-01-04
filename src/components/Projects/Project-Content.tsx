@@ -1,12 +1,14 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Badge } from "@/src/components/ui/bages";
 import { Container } from "@/src/components/ui/Container";
 import { Heading } from "@/src/components/ui/Heading";
-import { Quote } from "@/src/components/ui/Quote";
 import { SubHeading } from "@/src/components/ui/Subheading";
 import Image from "next/image";
 import { cn } from "@/src/lib/utils";
 import { ProjectContent, ProjectFrontmatter } from "@/src/types/Projects";
+
+import notFoundsvg from "@/src/components/ui/icons/404-page.svg";
 
 export const ProjectContents = ({
   frontmatter,
@@ -15,19 +17,29 @@ export const ProjectContents = ({
   frontmatter: ProjectFrontmatter;
   content: ProjectContent;
 }) => {
+  const [imgError, setImageError] = useState(false);
   return (
     <Container className="pt-30 md:px-12">
-      {frontmatter.url && (
-        <div className="mx-auto overflow-hidden rounded-2xl shadow-[0px_2px_5px_2px_var(--color-neutral-600)] dark:shadow-none">
+      <div className="mx-auto overflow-hidden rounded-2xl shadow-[0px_2px_5px_2px_var(--color-neutral-600)] dark:shadow-none">
+        {imgError ? (
           <Image
-            className="w-full rounded-2xl"
-            width={600}
-            height={600}
-            src={frontmatter.url}
+            className="w-full size-100 rounded-2xl"
+            width={100}
+            height={100}
+            src={notFoundsvg}
             alt={frontmatter.title}
           />
-        </div>
-      )}
+        ) : (
+          <Image
+            className="w-full size-100 rounded-2xl"
+            width={500}
+            height={500}
+            src={frontmatter?.url}
+            alt={frontmatter.title}
+            onError={() => setImageError(true)}
+          />
+        )}
+      </div>
 
       <div className="flex gap-2 py-4">
         <Badge className="bg-forground text-primary">

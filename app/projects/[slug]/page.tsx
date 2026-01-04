@@ -2,11 +2,6 @@ import { ProjectContents } from "@/src/components/Projects/Project-Content";
 import { getSingleProject } from "@/src/utils/getprojects";
 import type { Metadata } from "next";
 
-type QuoteData = {
-  quote: string;
-  reference: string;
-};
-
 export async function generateMetadata({
   params,
 }: {
@@ -38,13 +33,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   if (!project) return null;
 
   const { content, frontmatter } = project;
-  console.log(frontmatter);
   
-
   return (
     <div className="flex min-h-screen justify-start">
       <ProjectContents frontmatter={frontmatter} content={content} />
     </div>
   );
 }
-

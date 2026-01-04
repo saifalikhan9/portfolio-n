@@ -4,7 +4,7 @@ import { Project } from "@/src/types/Projects";
 import { Tooltip } from "../ui/tool-tip";
 import Image from "next/image";
 import Link from "next/link";
-import { easeInOut, motion } from "motion/react";
+import { AnimatePresence, easeInOut, motion } from "motion/react";
 import {
   IconArrowNarrowRight,
   IconBrandGithub,
@@ -16,70 +16,83 @@ import { useState } from "react";
 export const ProjectCard = ({
   className,
   projects,
+  hovered,
   index,
+  onMouseEnter,
+  onMouseLeave,
 }: {
   className?: string;
   projects: Project;
-  index: string | number;
+  index: string;
+  hovered: number | string | null;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 }) => {
-  const [hovered, setHovered] = useState<number | string | null>(null);
   return (
-    <motion.div
-      onMouseEnter={() => setHovered(index)}
-      onMouseLeave={() => setHovered(null)}
-      initial={{
-        opacity: 0,
-        filter: `blur(5px)`,
-        y: -10,
-      }}
-      animate={{
-        opacity: 1,
-        filter: "blur(0px)",
-        y: 0,
-      }}
-      transition={{
-        duration: 0.3,
-        ease: easeInOut,
-      }}
-      className={cn("relative p-1", className)}
+    <div
+      className="relative"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {hovered === index && (
         <motion.div
           layoutId="hovered"
-          className="shadow-custom-inset-shadow dark:shadow-custom-inset-shadow-dark bg-secondary/20 absolute inset-0 -top-2 -left-2 w-full rounded-xl md:w-[26rem]"
+          id="hovered"
+          className="shadow-custom-inset-shadow dark:shadow-custom-inset-shadow-dark bg-secondary/20 absolute inset-0 -top-2 -left-2 w-full rounded-xl md:w-104"
         />
       )}
+      <motion.div
+        initial={{
+          opacity: 0,
+          filter: `blur(5px)`,
+          y: -10,
+        }}
+        animate={{
+          opacity: 1,
+          filter: "blur(0px)",
+          y: 0,
+        }}
+        transition={{
+          duration: 0.3,
+          ease: easeInOut,
+        }}
+        className={cn("p-1", className)}
+      >
+        <ProjectImage image={projects.image} imageDes={projects.description} />
 
-      <ProjectImage image={projects.image} imageDes={projects.description} />
+        <ProjectTextContent
+          title={projects.title}
+          description={projects.description}
+          github={projects.github}
+          link={projects.link}
+        />
 
-      <ProjectTextContent
-        title={projects.title}
-        description={projects.description}
-        github={projects.github}
-        link={projects.link}
-      />
-
-      <div className="mx-2 my-4 flex items-center justify-between">
-        <div>
-          {projects.technologies.map((tech, techIndex) => (
-            <Tooltip key={`${projects.title}-${techIndex}`} content={tech.name}>
-              {tech.icon}
-            </Tooltip>
-          ))}
+        <div className="mx-2 my-4 flex items-center justify-between">
+          <div>
+            {projects.technologies.map((tech, techIndex) => (
+              <Tooltip
+                key={`${projects.title}-${techIndex}`}
+                content={tech.name}
+              >
+                {tech.icon}
+              </Tooltip>
+            ))}
+          </div>
+          {projects?.projectDetailsPageSlug && (
+            <Link
+              href={`/projects/${projects.projectDetailsPageSlug}`}
+              className="text-muted-forground hover:text-forground relative z-20 inline-flex items-center justify-center text-xs transition-all duration-200 ease-in-out hover:scale-105 active:scale-95"
+            >
+              view details
+              <IconArrowNarrowRight className="relative inset-0 top-[0.9px] stroke-1" />
+            </Link>
+          )}
         </div>
-        {projects?.projectDetailsPageSlug && (
-          <Link
-            href={`/projects/${projects.projectDetailsPageSlug}`}
-            className="text-muted-forground hover:text-forground relative z-20 inline-flex items-center justify-center text-xs transition-all duration-200 ease-in-out hover:scale-105 active:scale-95"
-          >
-            view details
-            <IconArrowNarrowRight className="relative inset-0 top-[0.9px] stroke-1" />
-          </Link>
-        )}
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
+
 const ProjectImage = ({
   className,
   image,

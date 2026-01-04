@@ -1,4 +1,4 @@
-import { IconBrandNodejs } from "@tabler/icons-react";
+import { IconBrandNodejs, IconBrandTwitter, IconGlobe } from "@tabler/icons-react";
 import ExpressJs from "../components/ui/icons/ExpressJs";
 import { MongoDB } from "../components/ui/icons/MongoDB";
 import NextJs from "../components/ui/icons/NextJs";
@@ -66,6 +66,25 @@ export const projects: Project[] = [
     details: true,
     projectDetailsPageSlug: "leetcode-whisper",
     isWorking: true,
+  },
+  {
+    title: "MCP Progress Poster",
+    description:
+      "Built a custom MCP (Model Context Protocol) server to automate build-in-public progress updates on Twitter while learning Data Structures and Algorithms. The system leverages AI-aware coding context from Visual Studio Code and GitHub Copilot, allowing a single natural-language prompt to generate and publish meaningful daily progress updates. Designed as a developer productivity tool that reduces friction, encourages consistency, and demonstrates real-world AI automation beyond traditional CRUD applications.",
+    image: "/mcp-progress-poster.png",
+  
+    link: "", // optional: demo or explanation page if you add one later
+    technologies: [
+      { name: "TypeScript", icon: <TypeScript /> },
+      { name: "Node.js", icon: <IconBrandNodejs /> },
+      { name: "MCP", icon: <IconGlobe /> },
+      { name: "Twitter API", icon: <IconBrandTwitter /> },
+    ],
+    github: "", // add repo link if/when you make it public
+    details: true,
+    projectDetailsPageSlug: "mcp-x-automator",
+    isWorking: true,
   }
+  
   
 ];

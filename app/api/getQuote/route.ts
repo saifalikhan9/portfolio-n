@@ -1,3 +1,4 @@
+
 import genAi from "@/src/utils/getGemini";
 import { NextRequest, NextResponse } from "next/server";
 

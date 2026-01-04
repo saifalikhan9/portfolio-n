@@ -1,18 +1,4 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { hover, motion } from "motion/react";
-import { IconsObject, projects } from "@/src/constants/Icons";
-import { truncate } from "@/src/utils/utils";
-import { SubHeading } from "../Subheading";
-import { Badge } from "../ui/bages";
-import { div } from "motion/react-client";
-import React, { useState } from "react";
-import StackIcon from "tech-stack-icons";
-import { useTheme } from "next-themes";
-import { Tooltip } from "../ui/tool-tip";
 import { ProjectsList } from "../Projects/ProjectsList";
-
 export default function Projects() {
 
   return (
@@ -24,7 +10,7 @@ export default function Projects() {
         Here are some of my projects that I have worked on.
       </p>
 
-      <ProjectsList />
+      <ProjectsList  />
       {/* {projects.map((el, indx) => (   
           <Link
             href={`/projects/${el.slug}`}

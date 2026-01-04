@@ -1,5 +1,5 @@
-import { Container } from "@/src/components/ui/Container";
-import { Heading } from "@/src/components/Heading";
+
+import { Heading } from "@/src/components/ui/Heading";
 import { getAllBlogs } from "@/src/utils/getSingleBlog";
 import { truncate } from "@/src/utils/utils";
 import Link from "next/link";

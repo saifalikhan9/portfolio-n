@@ -6,8 +6,8 @@ import { githubConfig } from "@/src/config/GithubConfig";
 import Link from "next/link";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
-import { Heading } from "../Heading";
-import { SubHeading } from "../Subheading";
+import { Heading } from "../ui/Heading";
+import { SubHeading } from "../ui/Subheading";
 
 type ContributionItem = {
   date: string;
