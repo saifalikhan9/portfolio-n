@@ -4,6 +4,7 @@ import { Badge } from "@/src/components/ui/bages";
 import { Container } from "@/src/components/ui/Container";
 import { Heading } from "@/src/components/ui/Heading";
 import { SubHeading } from "@/src/components/ui/Subheading";
+import { TagList } from "@/src/components/ui/TagList";
 import Image from "next/image";
 import { cn } from "@/src/lib/utils";
 import { ProjectContent, ProjectFrontmatter } from "@/src/types/Projects";
@@ -19,19 +20,19 @@ export const ProjectContents = ({
 }) => {
   const [imgError, setImageError] = useState(false);
   return (
-    <Container className="pt-30 md:px-12">
+    <Container className="px-6 pt-30">
       <div className="mx-auto overflow-hidden rounded-2xl shadow-[0px_2px_5px_2px_var(--color-neutral-600)] dark:shadow-none">
         {imgError ? (
           <Image
-            className="w-full size-100 rounded-2xl"
-            width={100}
-            height={100}
+            className="mx-auto rounded-2xl object-center"
+            width={400}
+            height={400}
             src={notFoundsvg}
             alt={frontmatter.title}
           />
         ) : (
           <Image
-            className="w-full size-100 rounded-2xl"
+            className="w-full rounded-2xl"
             width={500}
             height={500}
             src={frontmatter?.url}
@@ -41,22 +42,21 @@ export const ProjectContents = ({
         )}
       </div>
 
-      <div className="flex gap-2 py-4">
+      <div className="flex gap-2  my-6">
         <Badge className="bg-forground text-primary">
           {frontmatter.status}
         </Badge>
-        {frontmatter.tags.map((tag: string, i: number) => (
-          <Badge key={i}>{tag}</Badge>
-        ))}
+
+        <TagList tags={frontmatter.tags} />
       </div>
 
-      <Heading className="md:p-0 md:text-5xl">{frontmatter.title}</Heading>
+      <h1 className="text-3xl font-bold md:text-4xl">{frontmatter.title}</h1>
 
-      <SubHeading className="md:max-w-full md:p-0 md:text-lg">
+      <p className="text-muted-forground my-3 text-lg">
         {frontmatter.description}
-      </SubHeading>
+      </p>
 
-      <div className="bg-secondary/10 shadow-custom dark:shadow-custom-dark mx-2 my-8 flex flex-col gap-4 rounded-xl md:mx-0 md:h-20 md:flex-row md:items-center md:gap-26">
+      <div className="bg-secondary/10 shadow-custom dark:shadow-custom-dark my-8 flex flex-col gap-4 rounded-lg py-4 md:h-30 md:flex-row md:items-center md:gap-26">
         <Info label="Timeline" value={frontmatter.timeline} />
         <Info label="Team" value={frontmatter?.team!} />
         <Info label="Role" value={frontmatter?.role!} />
@@ -103,7 +103,7 @@ const Info = ({
     <p>{label}</p>
     <P
       className={
-        highlight ? "bg-forground text-primary rounded px-1 text-xs" : ""
+        highlight ? "bg-forground text-primary rounded p-1 text-xs" : ""
       }
     >
       {value}
@@ -118,5 +118,7 @@ export const P = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <p className={cn("text-muted-forground text-sm", className)}>{children}</p>
+  <p className={cn("text-muted-forground w-fit text-sm", className)}>
+    {children}
+  </p>
 );
