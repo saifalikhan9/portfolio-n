@@ -42,7 +42,7 @@ export const ProjectContents = ({
         )}
       </div>
 
-      <div className="flex gap-2  my-6">
+      <div className="my-6 flex gap-2">
         <Badge className="bg-forground text-primary">
           {frontmatter.status}
         </Badge>

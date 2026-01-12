@@ -19,20 +19,20 @@ export const ProjectCard = ({
   hovered,
   index,
   onMouseEnter,
-  onMouseLeave,
+
 }: {
   className?: string;
   projects: Project;
   index: string;
   hovered: number | string | null;
   onMouseEnter: () => void;
-  onMouseLeave: () => void;
+  
 }) => {
   return (
     <div
       className="relative"
       onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      
     >
       {hovered === index && (
         <motion.div

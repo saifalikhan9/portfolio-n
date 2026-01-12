@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { projects } from "@/src/constants/Projects";
 import { ProjectCard } from "./project-card";
 import { LayoutGroup } from "motion/react";
@@ -9,7 +9,10 @@ export const ProjectsList = () => {
 
   return (
     <LayoutGroup>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div
+        onMouseLeave={() => setHovered(null)}
+        className="grid grid-cols-1 gap-6 md:grid-cols-2"
+      >
         {projects.slice(0, 4).map((project, inx) => (
           <ProjectCard
             key={`${project.title}`}
@@ -17,7 +20,6 @@ export const ProjectsList = () => {
             projects={project}
             hovered={hovered}
             onMouseEnter={() => setHovered(`card-${inx}`)}
-            onMouseLeave={() => setHovered(null)}
           />
         ))}
       </div>
