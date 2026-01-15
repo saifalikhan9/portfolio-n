@@ -10,6 +10,10 @@ import { cn } from "@/src/lib/utils";
 import { ProjectContent, ProjectFrontmatter } from "@/src/types/Projects";
 
 import notFoundsvg from "@/src/components/ui/icons/404-page.svg";
+import { Button } from "../ui/Button";
+import Link from "next/link";
+import { IconBrandGithub, IconGlobe, IconWorld } from "@tabler/icons-react";
+import { link } from "fs";
 
 export const ProjectContents = ({
   frontmatter,
@@ -21,10 +25,10 @@ export const ProjectContents = ({
   const [imgError, setImageError] = useState(false);
   return (
     <Container className="px-6 pt-30">
-      <div className="mx-auto overflow-hidden rounded-2xl shadow-[0px_2px_5px_2px_var(--color-neutral-600)] dark:shadow-none">
+      <div className="mx-auto h-120 overflow-clip rounded-2xl shadow-[0px_2px_5px_2px_var(--color-neutral-600)] dark:shadow-none">
         {imgError ? (
           <Image
-            className="mx-auto rounded-2xl object-center"
+            className="mx-auto rounded-2xl"
             width={400}
             height={400}
             src={notFoundsvg}
@@ -64,21 +68,25 @@ export const ProjectContents = ({
       </div>
 
       <div className="my-8 flex gap-3 text-base">
-        <button className="bg-forground text-primary hover:bg-forground/90 text-shadow-primary/50 cursor-pointer rounded px-2 py-1 font-medium text-shadow-2xs">
-          Github link
-        </button>
-
-        <button
-          className={cn(
-            "text-shadow-secondary cursor-pointer rounded px-2 py-1 font-medium text-shadow-2xs",
-            "text-forground",
-            "bg-white/10 hover:bg-neutral-300 dark:bg-black/10 dark:hover:bg-neutral-900",
-            "inset-shadow-[0_0px_4px_0px_var(--color-neutral-400),0_0px_2px_var(--color-neutral-400)] dark:ring dark:inset-shadow-[0px_0px_4px_1px_var(--color-neutral-500)] dark:ring-neutral-500",
-            "transition-all duration-200 active:scale-90",
-          )}
-        >
-          Live Link
-        </button>
+        <Link href={frontmatter.githubLink!}>
+          <Button asChild className="gap-2">
+            <span>
+              <IconBrandGithub className="size-5 stroke-1" />
+            </span>
+            Github link
+          </Button>
+        </Link>
+        {frontmatter.liveLink && (
+          <Link href={frontmatter.liveLink}>
+            <Button className="gap-2" asChild variant="secondary">
+              {" "}
+              <span>
+                <IconWorld className="size-5 stroke-1" />
+              </span>{" "}
+              Live Link
+            </Button>
+          </Link>
+        )}
       </div>
 
       <div className="bg-muted-forground my-4 h-px w-full" />

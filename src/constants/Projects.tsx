@@ -1,4 +1,8 @@
-import { IconBrandNodejs, IconBrandTwitter, IconGlobe } from "@tabler/icons-react";
+import {
+  IconBrandNodejs,
+  IconBrandTwitter,
+  IconGlobe,
+} from "@tabler/icons-react";
 import ExpressJs from "../components/ui/icons/ExpressJs";
 import { MongoDB } from "../components/ui/icons/MongoDB";
 import NextJs from "../components/ui/icons/NextJs";
@@ -6,7 +10,6 @@ import ReactIcon from "../components/ui/icons/ReactIcon";
 import TailwindCss from "../components/ui/icons/TailwindCss";
 import TypeScript from "../components/ui/icons/TypeScript";
 import { Project } from "../types/Projects";
-
 
 export const projects: Project[] = [
   {
@@ -39,7 +42,7 @@ export const projects: Project[] = [
 
     link: "https://neon-loop-frontend-66oi.vercel.app/",
     technologies: [
-      { name: "TypeScript", icon: <TypeScript  /> },
+      { name: "TypeScript", icon: <TypeScript /> },
       { name: "Reactjs", icon: <ReactIcon key="react" /> },
       { name: "Expressjs", icon: <ExpressJs key="express" /> },
       { name: "Nodejs", icon: <IconBrandNodejs key="nodejs" /> },
@@ -53,8 +56,9 @@ export const projects: Project[] = [
     title: "LeetCode Whisper / Chrome Extension",
     description:
       "Built a Chrome extension that provides AI-powered hints for LeetCode problems without revealing full solutions. The extension extracts problem context directly from the DOM, refines and structures the data, and feeds it to an LLM with strict prompt constraints to generate conceptual guidance, edge-case reminders, and approach-level hints. Designed with responsible AI usage in mind, requiring users to supply their own API key while ensuring no credentials or problem data are stored.",
-    image: "/leetcode-whisper.png",
-  
+    image:
+      "https://saifalikhan99.vercel.app/_next/image?url=%2Fimages%2Fextention.jpg&w=1920&q=75",
+
     link: "", // optional: Chrome Web Store or demo link if available
     technologies: [
       { name: "TypeScript", icon: <TypeScript /> },
@@ -71,8 +75,9 @@ export const projects: Project[] = [
     title: "MCP Progress Poster",
     description:
       "Built a custom MCP (Model Context Protocol) server to automate build-in-public progress updates on Twitter while learning Data Structures and Algorithms. The system leverages AI-aware coding context from Visual Studio Code and GitHub Copilot, allowing a single natural-language prompt to generate and publish meaningful daily progress updates. Designed as a developer productivity tool that reduces friction, encourages consistency, and demonstrates real-world AI automation beyond traditional CRUD applications.",
-    image: "/mcp-progress-poster.png",
-  
+    image:
+      "https://saifalikhan99.vercel.app/_next/image?url=%2Fimages%2Fmcp.jpg&w=1920&q=75",
+
     link: "", // optional: demo or explanation page if you add one later
     technologies: [
       { name: "TypeScript", icon: <TypeScript /> },
@@ -84,7 +89,5 @@ export const projects: Project[] = [
     details: true,
     projectDetailsPageSlug: "mcp-x-automator",
     isWorking: true,
-  }
-  
-  
+  },
 ];

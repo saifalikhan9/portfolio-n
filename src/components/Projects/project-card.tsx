@@ -19,21 +19,15 @@ export const ProjectCard = ({
   hovered,
   index,
   onMouseEnter,
-
 }: {
   className?: string;
   projects: Project;
   index: string;
   hovered: number | string | null;
   onMouseEnter: () => void;
-  
 }) => {
   return (
-    <div
-      className="relative"
-      onMouseEnter={onMouseEnter}
-      
-    >
+    <div className="relative" onMouseEnter={onMouseEnter}>
       {hovered === index && (
         <motion.div
           layoutId="hovered"
@@ -135,12 +129,14 @@ const ProjectTextContent = ({
           >
             {<IconBrandGithub className="stroke-1" />}
           </Link>
-          <Link
-            className="hover:text-muted-forground transition-all duration-200 ease-in-out"
-            href={link}
-          >
-            {<IconWorld className="stroke-1" />}
-          </Link>
+          {link && (
+            <Link
+              className="hover:text-muted-forground transition-all duration-200 ease-in-out"
+              href={link}
+            >
+              {<IconWorld className="stroke-1" />}
+            </Link>
+          )}
         </div>
       </div>
       <p className="text-muted-forground text-sm">

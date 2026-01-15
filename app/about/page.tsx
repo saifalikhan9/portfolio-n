@@ -45,7 +45,7 @@ export default function About() {
                 <NextJs key="nextjs" />,
                 <TailwindCss key="tailwindcss" />,
               ].map((icon, i) => (
-                <Tooltip content="key">{icon}</Tooltip>
+                <Tooltip content="name  ">{icon}</Tooltip>
               ))}
             </div>
           </div>
