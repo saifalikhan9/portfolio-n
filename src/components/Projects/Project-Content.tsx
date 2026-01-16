@@ -2,18 +2,14 @@
 import React, { useState } from "react";
 import { Badge } from "@/src/components/ui/bages";
 import { Container } from "@/src/components/ui/Container";
-import { Heading } from "@/src/components/ui/Heading";
-import { SubHeading } from "@/src/components/ui/Subheading";
 import { TagList } from "@/src/components/ui/TagList";
 import Image from "next/image";
 import { cn } from "@/src/lib/utils";
 import { ProjectContent, ProjectFrontmatter } from "@/src/types/Projects";
-
 import notFoundsvg from "@/src/components/ui/icons/404-page.svg";
 import { Button } from "../ui/Button";
 import Link from "next/link";
-import { IconBrandGithub, IconGlobe, IconWorld } from "@tabler/icons-react";
-import { link } from "fs";
+import { IconBrandGithub, IconWorld } from "@tabler/icons-react";
 
 export const ProjectContents = ({
   frontmatter,
@@ -25,7 +21,7 @@ export const ProjectContents = ({
   const [imgError, setImageError] = useState(false);
   return (
     <Container className="px-6 pt-30">
-      <div className="mx-auto h-120 overflow-clip rounded-2xl shadow-[0px_2px_5px_2px_var(--color-neutral-600)] dark:shadow-none">
+      <div className="mx-auto max-h-120 overflow-clip rounded-2xl shadow-[0px_2px_5px_2px_var(--color-neutral-600)] dark:shadow-none">
         {imgError ? (
           <Image
             className="mx-auto rounded-2xl"
@@ -39,7 +35,7 @@ export const ProjectContents = ({
             className="w-full rounded-2xl"
             width={500}
             height={500}
-            src={frontmatter?.url}
+            src={frontmatter?.imageUrl}
             alt={frontmatter.title}
             onError={() => setImageError(true)}
           />

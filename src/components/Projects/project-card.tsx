@@ -52,13 +52,13 @@ export const ProjectCard = ({
         }}
         className={cn("p-1", className)}
       >
-        <ProjectImage image={projects.image} imageDes={projects.description} />
+        <ProjectImage image={projects.imageLink} imageDes={projects.description} />
 
         <ProjectTextContent
           title={projects.title}
           description={projects.description}
-          github={projects.github}
-          link={projects.link}
+          github={projects.githubLink}
+          link={projects.linkLink}
         />
 
         <div className="mx-2 my-4 flex items-center justify-between">

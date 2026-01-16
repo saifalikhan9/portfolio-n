@@ -1,6 +1,7 @@
 import {
   IconBrandNodejs,
   IconBrandTwitter,
+  IconBrandX,
   IconGlobe,
 } from "@tabler/icons-react";
 import ExpressJs from "../components/ui/icons/ExpressJs";
@@ -20,10 +21,10 @@ export const projects: Project[] = [
     title: "Resume Roast",
     description:
       "Built Resume Roast, a fun AI-based resume review platform that gives blunt, actionable feedback instead of generic suggestions, making resume improvement engaging and memorable.",
-    image:
+      imageLink:
       "https://saifalikhan99.vercel.app/_next/image?url=%2Fimages%2FresumeRoast.png&w=1920&q=75",
 
-    link: "https://roast-resume-frontend.vercel.app/",
+      linkLink: "https://roast-resume-frontend.vercel.app/",
     technologies: [
       { name: "Next.js", icon: <NextJs key="nextjs" /> },
       { name: "Gemini SDK", icon: <Gemini key="Gemini" /> },
@@ -32,7 +33,7 @@ export const projects: Project[] = [
       { name: "Tailwind CSS", icon: <TailwindCss key="tailwindcss" /> },
       { name: "Redis", icon: <Redis /> },
     ],
-    github: "https://github.com/saifalikhan9/roast_resume_frontend",
+    githubLink: "https://github.com/saifalikhan9/roast_resume_frontend",
     details: true,
     projectDetailsPageSlug: "resume-roast",
     isWorking: true,
@@ -41,16 +42,16 @@ export const projects: Project[] = [
     title: "Neon Loop / E-Commerce wesite",
     description:
       "Developed a neon-themed selling platform with a secure backend using JWT authentication, role-based access control, backend-enforced pricing rules, and Razorpay payment integration for seamless transactions, along with a tasteful frontend featuring smooth micro-interactions built using React and the motion/react animation library.",
-    image: "/Neon.png",
+    imageLink: "/Neon.png",
 
-    link: "https://neon-loop-frontend-66oi.vercel.app/",
+    linkLink: "https://neon-loop-frontend-66oi.vercel.app/",
     technologies: [
       { name: "TypeScript", icon: <TypeScript /> },
       { name: "Reactjs", icon: <ReactIcon key="react" /> },
       { name: "Expressjs", icon: <ExpressJs key="express" /> },
       { name: "Nodejs", icon: <Nodejs key="nodejs" /> },
     ],
-    github: "https://github.com/saifalikhan9/neon-loop-backend",
+    githubLink: "https://github.com/saifalikhan9/neon-loop-backend",
     details: true,
     projectDetailsPageSlug: "neon-loop",
     isWorking: true,
@@ -59,17 +60,17 @@ export const projects: Project[] = [
     title: "LeetCode Whisper / Chrome Extension",
     description:
       "Built a Chrome extension that provides AI-powered hints for LeetCode problems without revealing full solutions. The extension extracts problem context directly from the DOM, refines and structures the data, and feeds it to an LLM with strict prompt constraints to generate conceptual guidance, edge-case reminders, and approach-level hints. Designed with responsible AI usage in mind, requiring users to supply their own API key while ensuring no credentials or problem data are stored.",
-    image:
+    imageLink:
       "https://saifalikhan99.vercel.app/_next/image?url=%2Fimages%2Fextention.jpg&w=1920&q=75",
 
-    link: "", // optional: Chrome Web Store or demo link if available
+    linkLink: "", // optional: Chrome Web Store or demo link if available
     technologies: [
       { name: "TypeScript", icon: <TypeScript /> },
       { name: "React", icon: <ReactIcon key="react" /> },
       { name: "Vite", icon: <Vite key="vite" /> },
       // { name: "Chrome Extensions API", icon: <ChromeIcon key="chrome" /> },
     ],
-    github: "https://github.com/saifalikhan9/Extention",
+    githubLink: "https://github.com/saifalikhan9/Extention",
     details: true,
     projectDetailsPageSlug: "leetcode-whisper",
     isWorking: true,
@@ -78,17 +79,16 @@ export const projects: Project[] = [
     title: "MCP Progress Poster",
     description:
       "Built a custom MCP (Model Context Protocol) server to automate build-in-public progress updates on Twitter while learning Data Structures and Algorithms. The system leverages AI-aware coding context from Visual Studio Code and GitHub Copilot, allowing a single natural-language prompt to generate and publish meaningful daily progress updates. Designed as a developer productivity tool that reduces friction, encourages consistency, and demonstrates real-world AI automation beyond traditional CRUD applications.",
-    image:
+    imageLink:
       "https://saifalikhan99.vercel.app/_next/image?url=%2Fimages%2Fmcp.jpg&w=1920&q=75",
 
-    link: "", // optional: demo or explanation page if you add one later
+    linkLink: "",
     technologies: [
       { name: "TypeScript", icon: <TypeScript /> },
-      { name: "Node.js", icon: <IconBrandNodejs /> },
-      { name: "MCP", icon: <IconGlobe /> },
-      { name: "Twitter API", icon: <IconBrandTwitter /> },
+      { name: "Node.js", icon: <Nodejs /> },
+      { name: "Twitter API", icon: <IconBrandX /> },
     ],
-    github: "", // add repo link if/when you make it public
+    githubLink: "https://github.com/saifalikhan9/MCP-Server-of-X",
     details: true,
     projectDetailsPageSlug: "mcp-x-automator",
     isWorking: true,

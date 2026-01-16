@@ -1,11 +1,11 @@
 export interface Project {
   title: string;
   description: string;
-  image: string;
+  imageLink: string;
   video?: string;
-  link: string;
+  linkLink: string;
   technologies: { name: string; icon: React.ReactNode }[];
-  github: string;
+  githubLink: string;
   details: boolean;
   projectDetailsPageSlug: string;
   isWorking: boolean;
@@ -15,8 +15,7 @@ export interface Project {
 export type ProjectFrontmatter = {
   title: string;
   description: string;
-  slug: string;
-  url: string;
+  imageUrl: string;
   tags: string[];
   timeline: string;
   role?: string;
@@ -24,19 +23,7 @@ export type ProjectFrontmatter = {
   status: "Completed" | "Running" | string;
   liveLink?: string;
   githubLink?: string;
-  // Optional fields that may exist in some MDX files
-  image?: string;
   technologies?: string[];
-  github?: string;
-  live?: string;
-  featured?: boolean;
-  challenges?: string[];
-  learnings?: string[];
-  isPublished?: boolean;
-  quote?: string;
-  quoteAuthor?: string;
-  quoteSource?: string;
 };
 
-// Content type - MDX content is compiled to React.ReactElement
 export type ProjectContent = React.ReactElement;

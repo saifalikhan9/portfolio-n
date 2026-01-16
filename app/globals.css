@@ -7,7 +7,7 @@
   --background: var(--color-neutral-100);
   --primary: var(--color-neutral-200);
   --forground: var(--color-neutral-800);
-  --muted-forground: var(--color-neutral-500);
+  --muted-forground: var(--color-neutral-600);
   --secondary: var(--color-neutral-500);
 }
 
@@ -15,7 +15,7 @@
   --background: var(--color-neutral-800);
   --primary: var(--color-neutral-900);
   --forground: var(--color-neutral-300);
-  --muted-forground: var(--color-neutral-500);
+  --muted-forground: var(--color-neutral-400);
   --secondary: var(--color-neutral-500);
 }
  
