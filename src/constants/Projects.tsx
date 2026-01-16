@@ -10,6 +10,10 @@ import ReactIcon from "../components/ui/icons/ReactIcon";
 import TailwindCss from "../components/ui/icons/TailwindCss";
 import TypeScript from "../components/ui/icons/TypeScript";
 import { Project } from "../types/Projects";
+import Gemini from "../components/ui/icons/Gemini";
+import { Nodejs } from "../components/ui/icons/Nodejs";
+import { Redis } from "../components/ui/icons/Redis";
+import { Vite } from "../components/ui/icons/Vite";
 
 export const projects: Project[] = [
   {
@@ -22,12 +26,11 @@ export const projects: Project[] = [
     link: "https://roast-resume-frontend.vercel.app/",
     technologies: [
       { name: "Next.js", icon: <NextJs key="nextjs" /> },
-      { name: "Gemini SDK", icon: <TypeScript key="typescript" /> },
-      { name: "Nodejs", icon: <ReactIcon key="react" /> },
+      { name: "Gemini SDK", icon: <Gemini key="Gemini" /> },
+      { name: "Nodejs", icon: <Nodejs key="Nodejs" /> },
       { name: "Expressjs", icon: <MongoDB key="mongodb" /> },
       { name: "Tailwind CSS", icon: <TailwindCss key="tailwindcss" /> },
-
-      //   { name: "Redis", icon: < key="mdx" /> },
+      { name: "Redis", icon: <Redis /> },
     ],
     github: "https://github.com/saifalikhan9/roast_resume_frontend",
     details: true,
@@ -45,7 +48,7 @@ export const projects: Project[] = [
       { name: "TypeScript", icon: <TypeScript /> },
       { name: "Reactjs", icon: <ReactIcon key="react" /> },
       { name: "Expressjs", icon: <ExpressJs key="express" /> },
-      { name: "Nodejs", icon: <IconBrandNodejs key="nodejs" /> },
+      { name: "Nodejs", icon: <Nodejs key="nodejs" /> },
     ],
     github: "https://github.com/saifalikhan9/neon-loop-backend",
     details: true,
@@ -63,7 +66,7 @@ export const projects: Project[] = [
     technologies: [
       { name: "TypeScript", icon: <TypeScript /> },
       { name: "React", icon: <ReactIcon key="react" /> },
-      // { name: "Vite", icon: <ViteIcon key="vite" /> },
+      { name: "Vite", icon: <Vite key="vite" /> },
       // { name: "Chrome Extensions API", icon: <ChromeIcon key="chrome" /> },
     ],
     github: "https://github.com/saifalikhan9/Extention",
