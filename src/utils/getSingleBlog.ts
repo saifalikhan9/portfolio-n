@@ -1,23 +1,7 @@
 import fs from "fs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
-
-type BlogFrontmatter = {
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-};
-
-type BlogData = {
-  content: React.ReactElement;
-  frontmatter: BlogFrontmatter;
-};
-
-type BlogMetadata = {
-  frontmatter: BlogFrontmatter;
-  slug: string;
-};
+import type { BlogFrontmatter, BlogData, BlogMetadata } from "@/src/types/Blogs";
 
 export const getSingleBlog = async (
   fileName: string,

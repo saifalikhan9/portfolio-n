@@ -1,4 +1,3 @@
-import { Badge } from "@/src/components/ui/bages";
 import { Container } from "@/src/components/ui/Container";
 import { Heading } from "@/src/components/ui/Heading";
 import { SubHeading } from "@/src/components/ui/Subheading";
@@ -9,6 +8,65 @@ import ReactIcon from "@/src/components/ui/icons/ReactIcon";
 import NextJs from "@/src/components/ui/icons/NextJs";
 import TailwindCss from "@/src/components/ui/icons/TailwindCss";
 import { Tooltip } from "@/src/components/ui/tool-tip";
+import { Timeline } from "@/src/components/ui/Timeline";
+const data = [
+  {
+    year: 2025,
+    achievements: [
+      {
+        title: "Focused on frontend & real-world projects",
+        description:
+          "Built production-ready web applications using React, Next.js, TypeScript, and Tailwind CSS with a strong focus on clean UI and performance.",
+      },
+    ],
+  },
+  {
+    year: 2024,
+    achievements: [
+      {
+        title: "Strengthened full-stack fundamentals",
+        description:
+          "Learned backend basics, authentication, databases, and API integration through personal and academic projects.",
+      },
+      {
+        title: "Built multiple personal projects",
+        description:
+          "Worked on small to medium-scale applications to improve problem-solving, code structure, and development workflow.",
+      },
+    ],
+  },
+  {
+    year: 2023,
+    achievements: [
+      {
+        title: "Completed B.Tech in Computer Science",
+        description:
+          "Developed strong foundations in programming, data structures, databases, and software engineering concepts.",
+      },
+    ],
+  },
+  {
+    year: 2022,
+    achievements: [
+      {
+        title: "Explored programming and web basics",
+        description:
+          "Built academic mini-projects and experimented with web development and core programming concepts.",
+      },
+    ],
+  },
+  {
+    year: 2021,
+    achievements: [
+      {
+        title: "Started my Computer Science journey",
+        description:
+          "Began undergraduate studies and learned core programming concepts and logical thinking.",
+      },
+    ],
+  },
+];
+
 
 export default function About() {
   return (
@@ -45,38 +103,17 @@ export default function About() {
                 <NextJs key="nextjs" />,
                 <TailwindCss key="tailwindcss" />,
               ].map((icon, i) => (
-                <Tooltip content="name  ">{icon}</Tooltip>
+                <Tooltip key={i} content="name  ">{icon}</Tooltip>
               ))}
             </div>
           </div>
         </div>
+        <div className="bg-secondary/40 mask-l-from-90% mask-r-from-90% absolute h-px top-[33%] inset-0" />
 
-        <div className="my-4 grid grid-cols-3 gap-5">
-          {[1, 2, 3].map((el, i) => (
-            <div
-              key={i}
-              className="bg-secondary/30 flex h-70 items-center justify-center rounded-lg"
-            >
-              {el}
-            </div>
-          ))}
-        </div>
-        <div>
-          <Heading>Contact me</Heading>
-          <div className="bg-secondary/20 m-4 my-4 rounded p-2">
-            <div className="flex flex-col">
-              <label className="text-2xl" htmlFor="message">
-                Message
-              </label>
-              <textarea
-                className="ring-secondary/50 my-4 rounded ring-1"
-                id="message"
-                name="message"
-                rows={6}
-                cols={33}
-              ></textarea>
-            </div>
-          </div>
+        <div className="mt-16">
+          <Timeline
+            data={data}
+          />
         </div>
       </Container>
     </div>
