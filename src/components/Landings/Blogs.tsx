@@ -10,7 +10,7 @@ export default async function BlogsLanding() {
   return (
     <section className="">
       <SubHeading className="">I love to write things </SubHeading>
-      <div className="my-4 ml-3 flex flex-col gap-4 md:px-10">
+      <div className="my-4 ml-4 flex flex-col gap-4 md:px-10">
         {blogs
           .sort(
             (a, b) =>

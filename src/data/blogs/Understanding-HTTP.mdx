@@ -52,7 +52,10 @@ That means:
 Imagine requesting your profile:
 If the server doesn’t remember you, how does it know who you are?
 It doesn’t unless **you tell it every time**.
-So your browser sends credentials (cookies or tokens) on every request.
+
+So your browser sends credentials on every request.
+* **Cookies:** Often sent automatically by the browser.
+* **Tokens (JWT):** Usually must be manually attached to headers by the developer.
 
 ## Why Would Anyone Design It This Way?
 
@@ -70,7 +73,7 @@ No session stickiness. No special routing.
 
 ### 3. Reliability
 
-If a server crashes, nothing is lost.  
+If a server crashes, nothing is lost.
 There is no state to recover.
 
 ### But wait…
@@ -147,28 +150,43 @@ Before sending the real request, it asks the server:
 
 ## The Preflight: Asking for Permission
 
-The browser sends an **OPTIONS** request.
+The browser sends an **OPTIONS** request. This request is just a question; it has no body.
 
-This request:
+```txt
+BROWSER                                      SERVER
+   |                                            |
+   |   1. Preflight Request (OPTIONS)           |
+   | -----------------------------------------> |
+   |   "Can I send a POST request with          |
+   |    custom headers?"                        |
+   |                                            |
+   |   2. Preflight Response                    |
+   | <----------------------------------------- |
+   |   "Yes! (Access-Control-Allow-Origin)"     |
+   |                                            |
+   |                                            |
+   |   3. Actual Request (POST)                 |
+   | -----------------------------------------> |
+   |   "Here is the data."                      |
+   |                                            |
+   |   4. Actual Response                       |
+   | <----------------------------------------- |
+   |   "Data received. Here is your JSON."      |
+   |                                            |
 
-- Has no body
-- Is just a question
-- Asks about server capabilities
-
-It asks:
-
-- Do you allow this origin?
-- Do you allow this method?
-- Do you allow these headers?
+```
 
 ### Server’s responsibility
 
 If the server understands CORS, it responds with headers like:
 
-- `Access-Control-Allow-Origin`
-- `Access-Control-Allow-Methods`
-- `Access-Control-Allow-Headers`
-- `Access-Control-Max-Age`
+```http
+Access-Control-Allow-Origin: [https://your-site.com](https://your-site.com)
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Authorization, Content-Type
+Access-Control-Max-Age: 86400
+
+```
 
 If the browser is satisfied → the **real request is sent**.
 
@@ -184,51 +202,60 @@ But the browser said:
 
 > “I’m not letting your JavaScript access this.”
 
+You have likely seen this infamous error in your console:
+
+```txt
+Access to fetch at '[https://api.example.com](https://api.example.com)' from origin 'http://localhost:3000'
+has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+```
+
 CORS is a **browser security feature**, not a backend bug.
 
 ## The Language of Outcomes: HTTP Status Codes
 
-Imagine reading server responses without status codes.
+Now that we know how the browser asks for permission, how does the server say "yes" or "no"?
+
+It uses a specific numerical language. Imagine reading server responses without status codes.
 
 You’d have to guess:
 
-- Was it successful?
-- Did authentication fail?
-- Was the server down?
+* Was it successful?
+* Did authentication fail?
+* Was the server down?
 
-Status codes solve this.
-
+Status codes eliminate the guessing game.
 They provide a **standard language** that every client and server understands.
 
 ## Status Code Categories
 
-- **1xx** → Informational
-- **2xx** → Success
-- **3xx** → Redirection
-- **4xx** → Client errors
-- **5xx** → Server errors
+* **1xx** → Informational
+* **2xx** → Success
+* **3xx** → Redirection
+* **4xx** → Client errors
+* **5xx** → Server errors
 
 ## The Ones You’ll Use Daily
 
 ### ✅ Success (2xx)
 
-- **200** → Request succeeded
-- **201** → Resource created
-- **204** → Success, no content
+* **200** → Request succeeded
+* **201** → Resource created
+* **204** → Success, no content
 
 ### 🔁 Redirects (3xx)
 
-- **301** → Permanent redirect
-- **302** → Temporary redirect
-- **304** → Not modified (use cache)
+* **301** → Permanent redirect
+* **302** → Temporary redirect
+* **304** → Not modified (use cache)
 
 ### ❌ Client Errors (4xx)
 
-- **400** → Bad request (invalid data)
-- **401** → Unauthorized (auth missing/expired)
-- **403** → Forbidden (no permission)
+* **400** → Bad request (invalid data)
+* **401** → Unauthorized (auth missing/expired)
+* **403** → Forbidden (no permission)
 
-Backend engineers live here.
+This is where backend engineers spend most of their debugging time.
 
 ## Why All This Matters
 
@@ -236,10 +263,10 @@ Understanding HTTP isn’t about memorizing headers.
 
 It’s about understanding:
 
-- Why browsers behave the way they do
-- Why requests fail silently
-- Why status codes matter
-- Why statelessness scales
+* Why browsers behave the way they do
+* Why requests fail silently
+* Why status codes matter
+* Why statelessness scales
 
 Frameworks change.
 Languages change.

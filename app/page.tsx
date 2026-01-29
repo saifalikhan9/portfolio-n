@@ -18,7 +18,7 @@ import Link from "next/link";
 export default async function Home() {
   let quote = "";
   let reference = "";
-  // do not for get to uncomment the api call
+  // do not forget to uncomment the api call
   // try {
   //   const res = await fetch(
   //     `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/getQuote`,
@@ -35,7 +35,7 @@ export default async function Home() {
   return (
     <div className="flex min-h-screen items-start justify-start">
       <Container className="relative min-h-screen pt-24 pb-12">
-        <div className="bg-forground/10 mx-10 my-4 size-30 overflow-clip rounded-xl p-1">
+        <div className="bg-forground/10 mx-3 md:mx-10 my-4 size-30 overflow-clip rounded-xl p-1 ">
           <Image
             className="rounded-[12px]"
             src="https://github.com/saifalikhan9/Portfolio/blob/main/public/images/dp.jpg?raw=true"
@@ -49,7 +49,7 @@ export default async function Home() {
           <span className="text-secondary">A Full Stack web developer.</span>
         </Heading>
         <ProfileDes />
-        <div className="mx-10 my-4 inline-flex items-center gap-5">
+        <div className="mx-4 md:mx-10 my-4 inline-flex items-center gap-5">
           <Link
             href={
               "https://drive.google.com/file/d/1yditvS4vokyLE_DXAg-Fq_Zj8uL0l1-V/view?usp=drive_link"
@@ -116,7 +116,7 @@ const IconsText: React.FC<IconsTextProps> = ({
 
 const ProfileDes = () => {
   return (
-    <div className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-2 px-10 text-base whitespace-pre-wrap text-neutral-500 md:text-lg">
+    <div className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-2  px-4 md:px-10 text-base whitespace-pre-wrap text-neutral-500 md:text-lg">
       <span className="whitespace-pre-wrap">
         I build interactive web apps using
       </span>
