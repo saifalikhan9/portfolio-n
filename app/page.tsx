@@ -18,20 +18,21 @@ import Link from "next/link";
 export default async function Home() {
   let quote = "";
   let reference = "";
-  // do not forget to uncomment the api call
-  // try {
-  //   const res = await fetch(
-  //     `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/getQuote`,
-  //     { cache: "no-store" },
-  //   );
-  //   if (res.ok) {
-  //     const json = await res.json();
-  //     quote = json?.data?.quote ?? "";
-  //     reference = json?.data?.reference ?? "";
-  //   }
-  // } catch (error) {
-  //   console.error("Failed to fetch quote:", error);
-  // }
+
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/getQuote`,
+      { cache: "no-store" },
+    );
+    if (res.ok) {
+      const json = await res.json();
+      quote = json?.data?.quote ?? "";
+      reference = json?.data?.reference ?? "";
+    }
+  } catch (error) {
+    console.error("Failed to fetch quote:", error);
+  }
   return (
     <div className="flex min-h-screen items-start justify-start">
       <Container className="relative min-h-screen pt-24 pb-12">

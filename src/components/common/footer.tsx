@@ -15,19 +15,19 @@ export const Footer = () => {
 
         <SubHeading>Built with love by Saif Ali Khan</SubHeading>
         <div className="relative z-10 flex items-center justify-center gap-4 px-4">
-          <Link href={"https://saifalikhan99.vercel.app"}>
+          <Link href={"https://x.com/vizier_108"}>
             <IconBrandX
-              size={20}
+              size={20} 
               className="text-neutral-500 transition-all duration-200 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
             />
           </Link>
-          <Link href={"https://saifalikhan99.vercel.app"}>
+          <Link href={"https://www.linkedin.com/in/saifalikhan10/"}>
             <IconBrandLinkedin
               size={20}
               className="text-neutral-500 transition-all duration-200 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
             />
           </Link>
-          <Link href={"https://saifalikhan99.vercel.app"}>
+          <Link href={"https://github.com/saifalikhan9"}>
             <IconBrandGithub
               size={20}
               className="text-neutral-500 transition-all duration-200 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"

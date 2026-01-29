@@ -1,26 +1,10 @@
 import fs from "fs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
-
-type ProjectFrontmatter = {
-  title: string;
-  slug: string;
-  url: string;
-  tags: string[];
-  timeline: string;
-  status: "Completed" | "Running";
-  description: string;
-  role?: string;
-  team?: string;
-  liveLink?: string;
-  githubLink?: string;
-  quote?: string;
-  quoteAuthor?: string;
-  quoteSource?: string;
-};
+import type { ProjectContent, ProjectFrontmatter } from "@/src/types/Projects";
 
 type ProjectData = {
-  content: React.ReactElement;
+  content: ProjectContent;
   frontmatter: ProjectFrontmatter;
 };
 

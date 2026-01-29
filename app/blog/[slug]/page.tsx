@@ -30,7 +30,7 @@ export async function generateMetadata({
 }
 
 export default async function Blogs({ params }: { params: { slug: string } }) {
-  const { slug } =await params;
+  const { slug } = await params;
 
   const blogData = await getSingleBlog(slug);
   if (!blogData) {

@@ -2,11 +2,11 @@
 
 import { cn } from "@/src/lib/utils";
 import { motion } from "motion/react";
-import { IconCheck } from "@tabler/icons-react";
+import { TickIcon } from "./icons/tick-icon";
 
 interface Achievement {
-    title: string;
-    description: string;
+    text: string;
+    subText?: string
 }
 
 interface TimelineYear {
@@ -50,7 +50,7 @@ export const Timeline = ({ data, className }: TimelineProps) => {
                         <h3 className="text-xl bg-secondary/10  shadow-[0px_3px_5px_-2px_var(--color-secondary)]   w-fit px-1 rounded font-semibold text-forground md:text-lg">
                             {yearData.year}
                         </h3>
-                        <div className="space-y-3 pl-2">
+                        <div className="space-y-3 pl-4">
                             {yearData.achievements.map((achievement, achievementIndex) => (
                                 <motion.div
                                     key={achievementIndex}
@@ -58,16 +58,19 @@ export const Timeline = ({ data, className }: TimelineProps) => {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.2, delay: yearIndex * 0.1 + achievementIndex * 0.05 }}
                                     viewport={{ once: true }}
-                                    className="flex items-start gap-3"
+                                    className="flex items-start  gap-3"
                                 >
-                                    <IconCheck className="mt-1 size-5 shrink-0 text-neutral-500 dark:text-neutral-400" />
+                                    <TickIcon className="relative top-[5px] text-blue-600" />
+
                                     <div className="flex-1">
-                                        <p className="font-medium text-forground">
-                                            {achievement.title}
-                                        </p>
-                                        <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400 md:text-base">
-                                            {achievement.description}
-                                        </p>
+
+                                        <h3 className="font-medium text-forground">
+                                            {achievement.text}
+                                        </h3>
+                                        {
+                                            achievement.subText && <p className="text-muted-forground text-sm">{achievement.subText}</p>
+                                        }
+
                                     </div>
                                 </motion.div>
                             ))}
